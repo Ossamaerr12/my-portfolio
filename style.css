@@ -1,0 +1,763 @@
+/*index.html page*/
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: rgb(0, 255, 255);
+}
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Make sure particles are behind other content */
+}
+.container-fluid{
+    width: 100% !important;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    box-shadow:0 0   10px rgba(128, 128, 128, 0.301) ;
+}
+.logo h2{
+    margin: 20px 40px;
+    text-transform: capitalize;
+    font-size: 30px;
+    cursor: pointer;
+    color: darkblue;
+    transition: 0.4s ease;
+    font-weight: 800;
+}
+.logo h2:hover{
+    scale: 1.1;
+    letter-spacing: 2px;
+    color: blue;
+}
+nav{
+    margin: 30px 40px;
+}
+nav ul{
+    list-style: none;
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 30px;
+}
+nav ul li a{
+    color: rgb(0, 17, 255);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 17px;
+    position: relative;
+    transition: .4s ease;
+    text-transform: capitalize;
+
+
+}
+.dropdown-menu li .dropdown-item {
+  justify-content: center;
+  display: flex;
+margin-left: 24px;
+background-color: #fff;
+padding: 15px 0;
+}
+nav ul li a::after {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: rgb(255, 94, 0);
+    position: absolute;
+    bottom: -10px; /* لتثبيت الخط أسفل الرابط */
+    left: 50%; /* يبدأ من منتصف العنصر */
+    transition: 0.4s ease;
+    transform: translateX(-50%); /* لمركز الخط في المنتصف */
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* عرض الخط بالكامل عند التمرير */
+    left: 0; /* ينتشر الخط من المنتصف إلى الجوانب */
+    transform: translateX(0); /* يزيل التحويل */
+}
+.content{
+margin-top: 150px;
+
+}
+.img img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: none;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-shadow: -2px -1px 64px 10px rgba(89,89,89,0.75);
+    -webkit-box-shadow: -2px -1px 64px 10px rgba(89,89,89,0.75);
+    -moz-box-shadow: -2px -1px 64px 10px rgba(89,89,89,0.75);
+    margin-left: 52em;
+    margin-top: 20px;
+}
+.des h2{
+    margin-top: -240px;
+    color: darkblue;
+    text-transform: capitalize;
+    margin-left:40px;
+
+}
+.des h2 span{
+    color: orangered;
+}
+.des h3{
+    color: darkblue;
+    text-transform: capitalize;
+    margin-left: 40px;
+
+}
+h3 .dynamic-text {
+    color: #3498db;
+    font-weight: bold;
+    display: inline-block;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0; /* مبدئيًا مخفي */
+}
+
+h3 .dynamic-text.show {
+    opacity: 1; /* يظهر عند التحديث */
+}
+.des button{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 700;
+outline: none;
+border: none;
+border-radius: 20px;
+padding: 6px 52px;
+background-color: darkblue;
+box-shadow: -2px -1px 64px 10px rgba(89,89,89,0.75);
+-webkit-box-shadow: -2px -1px 64px 10px rgba(89,89,89,0.75);
+-moz-box-shadow: -2px -1px 64px 10px rgba(89,89,89,0.75);
+margin-top: 40px;
+margin-left: 200px;
+transition: .4s ease;
+}
+.des button:hover{
+    scale: 1.1 ;
+    letter-spacing: 2px;
+    box-shadow: -2px -1px 64px 10px rgba(19, 17, 158, 0.75);
+-webkit-box-shadow: -2px -1px 64px 10px rgba(19, 17, 158, 0.75);
+-moz-box-shadow: -2px -1px 64px 10px rgba(19, 17, 158, 0.75);
+}
+.social_media{
+    margin: 40px 100px;
+}
+.social_media i{
+    font-size: 25px;
+    display: inline-block;
+    margin-left: 12px;
+    border-radius: 50%;
+    background-color: black;
+    color: aqua;
+ padding: 15px 15px;
+ cursor: pointer;
+ transition: .4s ease;
+
+}
+.social_media i:hover{
+    scale: 1.1;
+}
+.scroll-to-top{
+    display: block;
+    color: #0056b3;
+    font-size: 40px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 0%;
+    right: 50%;
+cursor: pointer;
+transition: .4s ease;
+}
+/* الفوتر */
+footer {
+    display: none;  /* الفوتر مخفي بشكل افتراضي */
+    margin-top: 50px;
+    transition: .4s ease;
+}
+
+/* لإظهار الفوتر عند النقر على السهم */
+footer.show-footer {
+    display: block;
+
+}
+/* إعدادات الزر */
+.burger-menu {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: darkblue;
+    margin: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+/* إعدادات الصفحة بشكل عام على جميع الأجهزة */
+html, body {
+    height: 100%; /* التأكد من أن الصفحة تأخذ الارتفاع الكامل */
+    overflow-x: hidden; /* إخفاء التمرير الأفقي في حال كانت هناك عناصر تخرج عن الحد */
+
+}
+    .logo h2{
+        margin: 10px 0;
+        text-transform: capitalize;
+        font-size: 22px;
+        cursor: pointer;
+        color: darkblue;
+        transition: 0.4s ease;
+        font-weight: 800;
+    }
+    .burger-menu {
+        display: block;
+        font-size: 40px;
+        margin: -30px 0;
+        margin-left: 180px;
+    }
+   /* إخفاء القائمة الأصلية */
+   nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #ffffff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 10;
+    position: absolute;
+    top: 9%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: max-height 0.5s ease, padding 0.5s ease;
+
+}
+/* إظهار القائمة عند التفعيل */
+nav ul.active {
+    display: flex;
+    max-height: 500px; /* قيمة مرتفعة كافية لعرض القائمة */
+    padding: 10px 0;
+}
+
+/* تنسيق روابط القائمة */
+nav ul li {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.img img{
+    width: 150px; /* تقليص العرض للهواتف */
+    height: 150px; /* تقليص الارتفاع للهواتف */
+    margin-left: 0; /* إزالة المسافة على اليسار */
+    margin-top: 10px; /* تقليل المسافة من الأعلى */
+    margin-left:100px;
+}
+.des button{
+
+    margin-left: 0; /* إزالة المسافة على اليسار */
+    margin-top:210px; /* تقليل المسافة من الأعلى */
+    margin-left:81px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 700;
+}
+.social_media{
+    margin-left: 19px; /* إزالة المسافة على اليسار */
+
+}
+.social_media i{
+    font-size: 25px;
+    display: inline-block;
+    margin-left: 8px;
+    border-radius: 50%;
+    background-color: black;
+    color: aqua;
+ padding: 7px 7px;
+ cursor: pointer;
+ transition: .4s ease;
+
+}
+.scroll-to-top{
+display: none;
+}
+/* الفوتر */
+footer {
+    display: none;  /* الفوتر مخفي بشكل افتراضي */
+
+}
+
+/* لإظهار الفوتر عند النقر على السهم */
+footer.show-footer {
+    display: none;
+
+}
+.dov {
+    height: 100%; /* التأكد من أن الصفحة تأخذ الارتفاع الكامل */
+    overflow-x: hidden; /* إخفاء التمرير الأفقي في حال كانت هناك عناصر تخرج عن الحد */
+    background-color: #2c81ba;
+
+}
+.skills-container {
+    padding: 10px; /* تقليل الحشو داخل الحاوية */
+}
+
+.skills-container .hello {
+    font-size: 2em; /* تصغير الخط في الهواتف */
+}
+
+.skills-grid {
+    grid-template-columns: 1fr 1fr; /* عمودين في الهواتف */
+    gap: 15px; /* تقليل المسافة بين العناصر */
+}
+
+.skill-card {
+    padding: 15px; /* تقليل الحشو داخل البطاقة */
+}
+
+.skill-card i {
+    font-size: 2.5em; /* تصغير حجم الأيقونات */
+}
+
+.skill-card h3 {
+    font-size: 1.3em; /* تصغير حجم العنوان */
+}
+
+.skill-card p {
+    font-size: 0.9em; /* تصغير حجم النص */
+}
+.mom{
+    height: 101%; /* التأكد من أن الصفحة تأخذ الارتفاع الكامل */
+    overflow-x: hidden; /* إخفاء التمرير الأفقي في حال كانت هناك عناصر تخرج عن الحد */
+}
+
+.about h6{
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: -2px 7px 3px rgba(0,78,230,0.87);
+    text-decoration: none;
+    margin-left: 10px;
+    text-align: center;
+}
+ .about-text h4{
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    -webkit-background-clip: text;
+    text-align: center;
+    text-transform: uppercase;
+    color: #0056b3;
+    margin-left: 100px;
+letter-spacing: 2px;
+}
+.about-text .intro-text{
+        font-size: 1.1em;
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.6;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        animation: slideIn 1s ease-in-out;
+        margin-left: 60px;
+        width: 400px;
+}
+.about-text p{
+    font-weight: 800;
+    margin-left: 60px;
+    width: 390px;
+    font-size: 0.8em;
+
+}
+.pap{
+    height: 100%; /* التأكد من أن الصفحة تأخذ الارتفاع الكامل */
+    overflow-x: hidden; /* إخفاء التمرير الأفقي في حال كانت هناك عناصر تخرج عن الحد */
+}
+}
+
+/*skills.html page*/
+
+/* تنسيق الحاوية */
+.skills-container {
+    text-align: center;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #0056b3;
+    height: 100%;
+}
+
+/* تنسيق العنوان */
+.skills-container .hello {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: underline;
+    color: orangered;
+}
+
+/* شبكة المهارات */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* توزيع الأعمدة بشكل تلقائي */
+    gap: 100px; /* المسافة بين الأعمدة */
+}
+
+/* بطاقة المهارات */
+.skill-card {
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.39);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* تأثير التمرير على البطاقة */
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* تنسيق الأيقونات داخل البطاقة */
+.skill-card i {
+    font-size: 3em;
+    color: #3498db;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+/* تأثير التمرير على الأيقونات */
+.skill-card:hover i {
+    color: #2c81ba;
+}
+
+/* تنسيق العنوان داخل البطاقة */
+.skill-card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+/* تنسيق النص داخل البطاقة */
+.skill-card p {
+    font-size: 1em;
+    color: #666;
+    font-weight: 900;
+}
+/*about.html page*/
+.about{
+    background-color: white;
+    width: 74%;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    padding: 60px 40px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-out;
+    box-shadow: -10px 13px 26px 9px rgba(107,102,102,0.77);
+-webkit-box-shadow: -10px 13px 26px 9px rgba(107,102,102,0.77);
+-moz-box-shadow: -10px 13px 26px 9px rgba(107,102,102,0.77);
+}
+.about-container {
+    background: linear-gradient(135deg, #f0f0f5, #d3e0ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h6{
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: -2px 7px 3px rgba(0,78,230,0.87);
+    text-decoration: none;
+    margin-left: 120px;
+}
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.profile-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-image img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.about-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+h4{
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    -webkit-background-clip: text;
+    text-align: center;
+    text-transform: uppercase;
+    margin-right: 100px;
+    color: #0056b3;
+letter-spacing: 2px;
+}
+
+.intro-text {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.social-links {
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.social-icon {
+    color: #333;
+    font-size: 1.8em;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #3498db;
+    transform: scale(1.2) rotate(-10deg);
+}
+.about-text p{
+    font-weight: 800;
+}
+
+/*project.html page*/
+.projects{
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.projects-container {
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+    margin-top: 40px;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 20px;
+    background: -webkit-linear-gradient(#3498db, #9b59b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.project-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.view-more {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.view-more:hover {
+    color: #2980b9;
+}
+
+/*contact.htm page*/
+.contact {
+    background: linear-gradient(135deg, #c3cfe2, #f5f7fa);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contact-container {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    margin-top: 40px;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 20px;
+    background: -webkit-linear-gradient(#3498db, #9b59b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.contact-form, .contact-info {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form:hover, .contact-info:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 10px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #2980b9;
+}
+
+.contact-info h2 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: #3498db;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #2980b9;
+}
